@@ -2,6 +2,7 @@ package phd;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.json.JSONObject;
 
@@ -12,12 +13,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonParser {
 	
-	public static void main(String[] args) {
-		JsonParser obj = new JsonParser();
-		obj.run();
-	}
-	
-	private void run() {
+	public static ArrayList<Users> getUsers() {
+		ArrayList<Users> users = new ArrayList<>();
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
@@ -34,7 +31,23 @@ public class JsonParser {
 			JSONObject jsonObj = new JSONObject(jsonInString);
 			
 			for(int i = 0; i < jsonObj.getJSONArray("list").length(); i++) {
-				System.out.println(jsonObj.getJSONArray("list").getJSONObject(i).get("Name"));
+				Users user = new Users();
+				String name = jsonObj.getJSONArray("list").getJSONObject(i).get("Name").toString();
+				String first_name = name.split(" ")[0];
+				String last_name = name.split(" ")[name.split(" ").length - 1];
+				
+				String university = jsonObj.getJSONArray("list").getJSONObject(i).get("University").toString();
+				String interests= jsonObj.getJSONArray("list").getJSONObject(i).get("Subfield").toString();
+				String source1 = jsonObj.getJSONArray("list").getJSONObject(i).get("Sources1").toString();
+				
+				user.setFirst_name(first_name);
+				user.setLast_name(last_name);
+				user.setField_of_interest(interests);
+				user.setSource1(source1);
+
+				user.setUser_type("Professor");
+				
+				users.add(user);
 			}
 			
 		} catch (JsonGenerationException e) {
@@ -44,5 +57,7 @@ public class JsonParser {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return users;
 	}
 }

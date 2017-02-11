@@ -8,6 +8,15 @@ public class Users {
 	private String bio;
 	private String field_of_interest;
 	private String user_type;
+	private String source1;
+	
+	public void setSource1(String source1) {
+		this.source1 = source1;
+	}
+	
+	public String getSource1() {
+		return this.source1;
+	}
 	
 	public String getEmail() {
 		return email;
