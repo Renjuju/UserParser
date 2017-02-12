@@ -38,7 +38,7 @@ public class Main {
 		String jsonArray = JsonParser.toJson(testUsers);
 		//System.out.println(jsonArray);
 
-		PrintWriter out = new PrintWriter("csProfData.json");
+		PrintWriter out = new PrintWriter("crawledCSProfessorData.json");
 		PrintWriter stats = new PrintWriter("crawler.log");
 
 		stats.println("Total number of professors crawled: " + counter);

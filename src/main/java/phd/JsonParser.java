@@ -21,7 +21,7 @@ public class JsonParser {
 
 		try {
 			// Convert object to JSON string and save into a file directly
-			Object obj = mapper.readValue(new File("/Users/renju/Developer/Web-Crawler/CSProfessors.json"), Object.class);
+			Object obj = mapper.readValue(new File("CSProfessors.json"), Object.class);
 
 			// Convert object to JSON string
 			String jsonInString = mapper.writeValueAsString(obj);
