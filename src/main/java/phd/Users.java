@@ -1,14 +1,63 @@
 package phd;
 
+import java.util.ArrayList;
+
 public class Users {
 	
-	private String email;
+	private ArrayList<String> email;
+	private ArrayList<String> number;
+	private ArrayList<String> images;
+
 	private String first_name;
 	private String last_name;
 	private String bio;
 	private String field_of_interest;
 	private String user_type;
 	private String source1;
+	private String university;
+	private String doctorate;
+	private String prof_rank;
+	
+	
+	public String getProf_rank() {
+		return prof_rank;
+	}
+
+	public void setProf_rank(String prof_rank) {
+		this.prof_rank = prof_rank;
+	}
+
+	public String getDoctorate() {
+		return doctorate;
+	}
+
+	public void setDoctorate(String doctorate) {
+		this.doctorate = doctorate;
+	}
+
+	public ArrayList<String> getImages() {
+		return images;
+	}
+
+	public void setImages(ArrayList<String> images) {
+		this.images = images;
+	}
+
+	public ArrayList<String> getNumber() {
+		return number;
+	}
+
+	public void setNumber(ArrayList<String> number) {
+		this.number = number;
+	}
+	
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+	
+	public String getUniversity() {
+		return this.university;
+	}
 	
 	public void setSource1(String source1) {
 		this.source1 = source1;
@@ -18,11 +67,11 @@ public class Users {
 		return this.source1;
 	}
 	
-	public String getEmail() {
+	public ArrayList<String> getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(ArrayList<String> email) {
 		this.email = email;
 	}
 
