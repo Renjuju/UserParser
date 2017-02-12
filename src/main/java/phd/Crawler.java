@@ -22,6 +22,7 @@ public class Crawler {
 				  .userAgent("Mozilla")
 				  .cookie("auth", "token")
 				  .timeout(10000)
+				  .ignoreHttpErrors(true)
 				  .get();
 		Users user = new Users();
 		
@@ -31,6 +32,7 @@ public class Crawler {
 		
 		for (Element e : doc.select("img")) {
 		    images.add(e.attr("src"));
+		    break;
 		}
 		
 		user.setEmail(emails);

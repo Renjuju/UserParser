@@ -14,11 +14,22 @@ public class Main {
 		int counter = 0;
 		for(Users user : users) {
 			counter++;
+			if(counter > 25) {
+				break;
+			}
 			System.out.println("-----------------------------");
 			System.out.println(user.getFirst_name() + " " + user.getLast_name());
 			System.out.println("Field of interest: " + user.getField_of_interest());
 			try {
 				Users crawledUserData = crawler.getWebPage(user.getSource1());
+				if(crawledUserData.getEmail().size() == 0 || crawledUserData.getEmail() == null) {
+					break;
+				}
+				
+				if(user.getFirst_name().equals("Jieping")) {
+					System.out.println("BREAK HERE");
+					break;
+				}
 				user.setBio(crawledUserData.getBio());
 				user.setNumber(crawledUserData.getNumber());
 				user.setEmail(crawledUserData.getEmail());
@@ -27,9 +38,6 @@ public class Main {
 				
 			}
 			testUsers.add(user);
-			if(counter == 10) {
-				break;
-			}
 			
 		}
 		
